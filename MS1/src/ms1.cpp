@@ -1,23 +1,32 @@
+// Name: Alejandro Silva Juarez
+// Seneca Student ID: 142655224
+// Seneca email: asilva-juarez@myseneca.ca
+// Date of completion: 03/07/2024
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
 #include "Station.h"
-#include "Station.h"        // intentional
+#include "Station.h" // intentional
 #include "Utilities.h"
-#include "Utilities.h"      // intentional
+#include "Utilities.h" // intentional
 
 int cout = 0; // won't compile if headers don't follow convention regarding namespaces
 
-static void loadStations(const char*, std::vector<seneca::Station>&);
+static void loadStations(const char *, std::vector<seneca::Station> &);
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
 	std::cout << "Command Line: " << argv[0];
 	for (int i = 1; i < argc; ++i)
 		std::cout << " " << argv[i];
-	std::cout << std::endl << std::endl;
-	if (argc < 3) {
+	std::cout << std::endl
+			  << std::endl;
+	if (argc < 3)
+	{
 		std::cerr << "ERROR: Insufficient number of arguments\n";
 		std::exit(1);
 	}
@@ -31,7 +40,7 @@ int main(int argc, char** argv)
 		seneca::Utilities::setDelimiter('|');
 		::loadStations(argv[2], theStations);
 	}
-	catch (const std::string& err)
+	catch (const std::string &err)
 	{
 		std::cerr << err << '\n';
 		std::exit(2);
@@ -40,18 +49,20 @@ int main(int argc, char** argv)
 	std::cout << "========================================" << std::endl;
 	std::cout << "=         Stations (summary)           =" << std::endl;
 	std::cout << "========================================" << std::endl;
-	for (const auto& theItem : theStations)
+	for (const auto &theItem : theStations)
 		theItem.display(std::cout, false);
-	std::cout << std::endl << std::endl;
+	std::cout << std::endl
+			  << std::endl;
 
 	std::cout << "========================================" << std::endl;
 	std::cout << "=          Stations (full)             =" << std::endl;
 	std::cout << "========================================" << std::endl;
-	for (const auto& theItem : theStations)
+	for (const auto &theItem : theStations)
 		theItem.display(std::cout, true);
-	std::cout << std::endl << std::endl;
+	std::cout << std::endl
+			  << std::endl;
 
-	//Select an object and verify all the functionality it working
+	// Select an object and verify all the functionality it working
 	std::cout << "========================================" << std::endl;
 	std::cout << "=          Manual Validation           =" << std::endl;
 	std::cout << "========================================" << std::endl;
@@ -63,26 +74,27 @@ int main(int argc, char** argv)
 	std::cout << "getQuantity(): " << theStations[0].getQuantity() << std::endl;
 	std::cout << std::endl;
 
-
 	std::cout << "========================================" << std::endl;
 	std::cout << "=              Utilities               =" << std::endl;
 	std::cout << "========================================" << std::endl;
 	// create & initialize an array of input data
-	const struct { char delim; std::string data; } input[]
+	const struct
 	{
-		{ 'a', "a"},
-		{ 'b', "a" },
-		{ 'l', "Hello"},
-		{ ',', "apple,orange,banana,kiwi,strawberry,yellow watermellon" },
-		{ '|', "Gengar|Arcanine|Bulbasaur|Blaziken|C h a r i z a r d|Umbreon|Lucario|Eevee"}
-	};
+		char delim;
+		std::string data;
+	} input[]{
+		{'a', "a"},
+		{'b', "a"},
+		{'l', "Hello"},
+		{',', "apple,orange,banana,kiwi,strawberry,yellow watermellon"},
+		{'|', "Gengar|Arcanine|Bulbasaur|Blaziken|C h a r i z a r d|Umbreon|Lucario|Eevee"}};
 
-	for (const auto& item : input)
+	for (const auto &item : input)
 	{
 		seneca::Utilities::setDelimiter(item.delim);
 		seneca::Utilities util;
 		bool more = true; // if there are more tokens in the input string
-		size_t pos = 0u; // position of the next token in the input string
+		size_t pos = 0u;  // position of the next token in the input string
 		std::cout << "Data: [" << item.data << "]    Delimiter: [" << item.delim << "]\n";
 		while (more)
 		{
@@ -91,14 +103,17 @@ int main(int argc, char** argv)
 				auto token = util.extractToken(item.data, pos, more);
 				std::cout << "   Token: [" << token << "] [" << util.getFieldWidth() << "]\n";
 			}
-			catch (...) { std::cout << "   ERROR: No token.\n"; }
+			catch (...)
+			{
+				std::cout << "   ERROR: No token.\n";
+			}
 		}
 	}
 
 	return cout;
 }
 
-void loadStations(const char* filenameSt, std::vector<seneca::Station>& theStations)
+void loadStations(const char *filenameSt, std::vector<seneca::Station> &theStations)
 {
 	std::ifstream file(filenameSt);
 	if (!file)

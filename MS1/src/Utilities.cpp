@@ -1,3 +1,10 @@
+// Name: Alejandro Silva Juarez
+// Seneca Student ID: 142655224
+// Seneca email: asilva-juarez@myseneca.ca
+// Date of completion: 03/07/2024
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
 #include "Utilities.h"
 #include <string>
 #include <iostream>

@@ -1,3 +1,10 @@
+// Name: Alejandro Silva Juarez
+// Seneca Student ID: 142655224
+// Seneca email: asilva-juarez@myseneca.ca
+// Date of completion: 03/07/2024
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
 #include "Station.h"
 #include "Utilities.h"
 #include <string>
@@ -17,7 +24,11 @@ namespace seneca
         m_name = ut.extractToken(str, pos, more);
         m_serialNumber = std::stoul(ut.extractToken(str, pos, more));
         m_stock = std::stoul(ut.extractToken(str, pos, more));
+        // get the current width
         m_widthField = ut.getFieldWidth();
+
+        // because description does not require format we need to extract it separately
+        // instead the width might have the width of the description because is larger than the names
         m_desc = str.substr(pos, str.size() - pos);
         ut.trim(m_desc);
     }
