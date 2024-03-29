@@ -1,3 +1,10 @@
+// Name: Alejandro Silva Juarez
+// Seneca Student ID: 142655224
+// Seneca email: asilva-juarez@myseneca.ca
+// Date of completion: 03/29/2024
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
 #ifndef SENECA_WORKSTATION_H
 #define SENECA_WORKSTATION_H
 #include <deque>
