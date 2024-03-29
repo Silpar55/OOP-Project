@@ -5,10 +5,10 @@
 //
 // I confirm that I am the only author of this file
 //   and the content was created entirely by me.
-#include "Station.h"
-#include "Utilities.h"
 #include <string>
 #include <iomanip>
+#include "Station.h"
+#include "Utilities.h"
 namespace seneca
 {
     size_t Station::m_widthField = 0;

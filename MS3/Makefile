@@ -15,7 +15,7 @@ CXXFLAGS	:= -std=c++17 -Wall -Wextra -g
 LFLAGS =
 
 # define output directory
-OUTPUT	:= output
+OUTPUT	:= /Users/alejandrosilva/Documents/Seneca/OOP-Project/MS3
 
 # define source directory
 SRC		:= src

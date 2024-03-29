@@ -25,5 +25,7 @@ namespace seneca
         static void setDelimiter(char newDelimiter);
         static char getDelimiter();
     };
+
+    extern Utilities ut;
 }
 #endif // !SENECA_UTILITIES_H
